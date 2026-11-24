@@ -2,7 +2,7 @@
 
 Download the Windows x64 edition of Spool from [Releases](https://github.com/EduFilesPH/spool-releases/releases/latest). Spool runs on your own PC and opens in your browser.
 
-Spool 1.3.1 adds a Restart Spool button for future in-app updates. Choose **Audio only** to download MP3 audio from a video or playlist. Paste a YouTube playlist link, choose MP4 video or MP3 audio, and download one ZIP with numbered tracks. For a video link that includes a playlist, select **Download the entire playlist** before fetching the link.
+Spool 1.4.0 lets you search YouTube by title or keywords and select a video directly in the app. Choose **Audio only** to download MP3 audio from a video or playlist. Paste a YouTube playlist link, choose MP4 video or MP3 audio, and download one ZIP with numbered tracks. For a video link that includes a playlist, select **Download the entire playlist** before fetching the link.
 
 For a first installation, extract the Windows x64 ZIP and open **Open Spool.cmd**. For the original 1.0.0 edition, close Spool and extract the small **Spool-Enable-Updates.zip** into the existing folder containing **Open Spool.cmd**. Allow the app files to be replaced and reopen Spool.
 
