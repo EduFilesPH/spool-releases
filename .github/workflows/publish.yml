@@ -1,0 +1,40 @@
+name: Publish Spool release
+on:
+  push:
+    branches: [main]
+    paths: ['Spool-Enable-Updates.zip', 'package.json', '.github/workflows/publish.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: spool-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Build Windows distribution and app update
+        run: node packaging/build.mjs --from-patch
+      - name: Publish verified assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content -Raw package.json | ConvertFrom-Json).version
+          if ($version -notmatch '^\d+\.\d+\.\d+$') { throw 'Invalid release version' }
+          $tag = "v$version"
+          $assets = @("release/Spool-$version-Windows-x64.zip", "release/Spool-Enable-Updates.zip", "release/Spool-update-v$version.json.gz")
+          $existing = gh release view $tag --json isDraft 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            if (-not ($existing | ConvertFrom-Json).isDraft) { throw 'This version has already been published. Choose a new version.' }
+          } else {
+            gh release create $tag --draft --target $env:GITHUB_SHA --title "Spool $version for Windows" --notes-file README.md
+            if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          }
+          gh release upload $tag @assets --clobber
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          gh release edit $tag --draft=false --latest
+          exit $LASTEXITCODE

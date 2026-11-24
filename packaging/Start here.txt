@@ -1,0 +1,27 @@
+Spool for Windows x64
+
+1. Right-click the ZIP, select Extract All, and open the extracted folder.
+2. Double-click Open Spool.cmd. On first use Spool downloads and verifies
+   yt-dlp and FFmpeg (about 53 MB total) from their GitHub releases.
+3. Your browser opens Spool. Paste a YouTube link, click Fetch video, and
+   choose MP4 video or MP3 audio. Your browser saves the finished file.
+
+Keep the Spool console open during downloads. Close it to stop the app.
+If your browser does not open, copy the local address printed in the console.
+
+Use Check for updates at the bottom of Spool to check GitHub Releases.
+Choose Install update if a newer version is available. Finish any downloads,
+close the console and reopen Spool to start the updated version.
+
+Each PC needs an internet connection. All media processing takes place there.
+Spool uses public videos you own or have permission to download.
+Some videos may be unavailable or restricted by YouTube.
+
+Tools and temporary media are stored in %LOCALAPPDATA%\SpoolDownloader.
+Temporary copies expire after roughly an hour while Spool is running.
+To remove Spool, close it and delete its extracted folder and the
+SpoolDownloader data folder. Files saved by your browser are separate.
+
+Share the original ZIP with other Windows x64 users. The Node.js runtime and
+its third-party notices are in runtime. The media tools come from
+https://github.com/yt-dlp/yt-dlp and https://github.com/eugeneware/ffmpeg-static.
