@@ -3,8 +3,8 @@ Spool for Windows x64
 1. Right-click the ZIP, select Extract All, and open the extracted folder.
 2. Double-click Open Spool.cmd. On first use Spool downloads and verifies
    yt-dlp and FFmpeg (about 53 MB total) from their GitHub releases.
-3. Your browser opens Spool. Paste a YouTube link, click Fetch video, and
-   choose MP4 video or MP3 audio. Your browser saves the finished file.
+3. Your browser opens Spool. Paste a YouTube link, click Fetch link, and
+   choose MP4 video or MP3 audio. Playlists save as one ZIP in track order.
 
 Keep the Spool console open during downloads. Close it to stop the app.
 If your browser does not open, copy the local address printed in the console.
